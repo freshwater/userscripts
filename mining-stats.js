@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name         Mining Stats
+// @description  Adds a button to calculates statistics based on mines and 'actual IRC line' count.
 // @namespace    https://gazellegames.net/
-// @version      1.0.1-alpha.8
-// @description  Calculates statistics based on mines and 'actual IRC line' count
+// @version      1.0.2-alpha
 // @match        https://gazellegames.net/user.php?id=*
 // @grant        GM_setValue
 // @grant        GM_getValue
+// @icon         https://gazellegames.net/favicon.ico
+// @supportURL   https://github.com/freshwater/userscripts
 // ==/UserScript==
 
 (function() {
