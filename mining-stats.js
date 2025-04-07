@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Mining Stats
 // @namespace    https://gazellegames.net/
-// @version      1.0.0-alpha.5
+// @version      1.0.0-alpha.6
 // @description  Calculates statistics based on mines and 'actual IRC line' count.
 // @match        https://gazellegames.net/user.php?id=*
-// @grant        none
+// @grant        GM_setValue
+// @grant        GM_getValue
 // ==/UserScript==
 
 (function() {
@@ -20,9 +21,9 @@
   btn.style.marginLeft = '8px';
   btn.style.border = '1px solid white';
   btn.addEventListener('click', async () => {
-    let apiKey = localStorage.getItem('mining_stats_api_key') || prompt('Enter your API key (requires "User" permissions):');
+    let apiKey = GM_getValue('mining_stats_api_key') || prompt('Enter your API key (requires "User" permissions):');
     if (!apiKey) return;
-    localStorage.setItem('mining_stats_api_key', apiKey);
+    GM_setValue('mining_stats_api_key', apiKey);
 
     async function safeFetch(url) {
       const res = await fetch(url, { method: 'GET', headers: { 'X-API-Key': apiKey } });
