@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Mining Stats
 // @namespace    https://gazellegames.net/
-// @version      1.0.0-alpha.6
+// @version      1.0.0-alpha.7
 // @description  Calculates statistics based on mines and 'actual IRC line' count.
 // @match        https://gazellegames.net/user.php?id=*
 // @grant        GM_setValue
@@ -52,6 +52,9 @@
       const linesPerFlame = (actualLines / (totalFlames || 1)).toFixed(2);
 
       alert(`Mines: ${totalMines} | Flames: ${totalFlames} (Nayru: ${flameCounts.nayru}, Din: ${flameCounts.din}, Farore: ${flameCounts.farore})\nLines per Mine: ${linesPerMine} | Lines per Flame: ${linesPerFlame}`);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      alert('An error occurred while calculating stats. Please check the console for more details.');
     }
   });
 
