@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Mining Stats
 // @namespace    https://gazellegames.net/
-// @version      1.0.0-alpha.4
+// @version      1.0.0-alpha.5
 // @description  Calculates statistics based on mines and 'actual IRC line' count.
 // @match        https://gazellegames.net/user.php?id=*
 // @grant        none
@@ -31,7 +31,7 @@
     }
 
     try {
-      const logData = await safeFetch(`https://gazellegames.net/api.php?request=userlog&search=as an irc reward.`);
+      const logData = await safeFetch(`https://gazellegames.net/api.php?request=userlog&limit=-1&search=as an irc reward.`);
       const drops = logData.response || [];
       const flameEntries = drops.filter(e => e.message.toLowerCase().includes('flame'));
       const flameCounts = { nayru: 0, din: 0, farore: 0 };
