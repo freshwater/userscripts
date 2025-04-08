@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Mining Stats
-// @description  Adds a button to calculates statistics based on mines and 'actual IRC line' count.
+// @name         GGn Mining Stats
+// @description  Adds a button to the userlog page to calculate personal minining drops statistics.
 // @namespace    https://gazellegames.net/
-// @version      1.0.3
+// @version      1.0.4
 // @match        https://gazellegames.net/user.php?action=userlog
 // @grant        GM_setValue
 // @grant        GM_getValue
