@@ -2,8 +2,8 @@
 // @name         Mining Stats
 // @description  Adds a button to calculates statistics based on mines and 'actual IRC line' count.
 // @namespace    https://gazellegames.net/
-// @version      1.0.2-alpha
-// @match        https://gazellegames.net/user.php?id=*
+// @version      1.0.3
+// @match        https://gazellegames.net/user.php?action=userlog
 // @grant        GM_setValue
 // @grant        GM_getValue
 // @icon         https://gazellegames.net/favicon.ico
@@ -12,15 +12,22 @@
 
 (function() {
   'use strict';
-  const userId = new URLSearchParams(window.location.search).get('id');
-  if (!userId || document.getElementById('tip_user')) return;
+  const userLink = document.querySelector('h2 a.username');
+  if (!userLink) return;
+  const href = userLink.getAttribute('href');
+  const userId = new URL(href, window.location.href).searchParams.get('id');
+  if (!userId) return;
 
-  const header = document.getElementById('username');
+  const header = document.querySelector('h2');
   if (!header) return;
 
   const btn = document.createElement('button');
   btn.textContent = 'Mining Stats';
-  Object.assign(btn.style, { marginLeft: '8px', border: '1px solid white', cursor: 'pointer' });
+  Object.assign(btn.style, {
+    marginLeft: '8px',
+    border: '1px solid white',
+    cursor: 'pointer'
+  });
 
   btn.addEventListener('click', async () => {
     let apiKey = GM_getValue('mining_stats_api_key');
@@ -44,7 +51,9 @@
         const flameEntries = drops.filter(e => e.message.toLowerCase().includes('flame'));
         const flameCounts = flameEntries.reduce((acc, entry) => {
           const msg = entry.message.toLowerCase();
-          ['nayru', 'din', 'farore'].forEach(flame => msg.includes(`${flame}'s flame`) && acc[flame]++);
+          ['nayru', 'din', 'farore'].forEach(flame => {
+            if (msg.includes(`${flame}'s flame`)) acc[flame]++;
+          });
           return acc;
         }, { nayru: 0, din: 0, farore: 0 });
 
