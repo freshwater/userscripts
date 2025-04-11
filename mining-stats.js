@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         GGn Mining Stats
-// @description  Adds a button to the userlog page to calculate personal minining drops statistics.
+// @description  Adds a button to the userlog page to calculate personal mining drops statistics.
 // @namespace    https://gazellegames.net/
-// @version      1.0.4
+// @version      1.0.4.1
 // @match        https://gazellegames.net/user.php?action=userlog
 // @grant        GM_setValue
 // @grant        GM_getValue
