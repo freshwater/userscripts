@@ -2,7 +2,7 @@
 // @name         GGn Forum Games Search
 // @description  Adds a search box below the last post on various forum game threads.
 // @namespace    https://gazellegames.net/
-// @version      1.2.1
+// @version      1.2.2
 // @match        https://gazellegames.net/forums.php*
 // @grant        none
 // @icon         https://gazellegames.net/favicon.ico
@@ -13,6 +13,7 @@
     'use strict';
     console.log("Userscript loaded on a GazelleGames forums page.");
 
+    // 29022 = Game Title Chains, 21488 = Answer With a Name of a Game / Torrent 
     if (window.location.href.indexOf("threadid=29022") !== -1 || window.location.href.indexOf("threadid=21488") !== -1) {
         console.log("Target thread detected. Executing script actions.");
 
