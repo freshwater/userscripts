@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         The Lounge Trading Swap
+// @name         GGn TheLounge Trading Swap
 // @description  Based of ZeDoCaixao's script; will flip jesterrace's #Trading [Have] & [Want] for TheLounge instances.
 // @namespace    https://gazellegames.net
 // @version      2.0
